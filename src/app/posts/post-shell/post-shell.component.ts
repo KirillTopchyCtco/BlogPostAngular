@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { Post } from '../post';
 import { PostListComponent } from "../post-list/post-list.component";
 import { getError, getBlogPosts as getPosts } from '../state';
-import { PostActions } from '../state/actions';
+import { PostActions } from '../state/post.actions';
 
 
 @Component({

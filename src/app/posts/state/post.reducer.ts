@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { Post } from "../post";
-import { PostActions } from './actions';
+import { PostActions } from './post.actions';
 
 export interface PostState {
     currentBlogPostId: number | null;
