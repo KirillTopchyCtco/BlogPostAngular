@@ -1,23 +1,23 @@
-.post {
+.comment {
     margin-bottom: 16px;
     margin-right: 20px;
-  }
+}
 
-  .post-header {
+.comment-header {
     font-weight: bold;
     background-color: #d3d3d3;
     padding: 8px;
-  }
+}
 
-  .post-content {
+.comment-content {
     padding: 8px;
     font-size: 0.9rem;
     font-style: italic;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+}
 
-  .post-button {
+.comment-button {
     margin-right: auto;
-  }
+}

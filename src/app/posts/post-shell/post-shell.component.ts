@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Post } from '../post';
+import { Post } from '../models/post';
 import { PostListComponent } from "../post-list/post-list.component";
-import { getError, getBlogPosts as getPosts } from '../state';
+import { getError, getPosts } from '../state';
 import { PostActions } from '../state/post.actions';
 
 

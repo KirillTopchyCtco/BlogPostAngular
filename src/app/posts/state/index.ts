@@ -3,7 +3,7 @@ import { PostState } from './post.reducer';
 
 const getBlogPostsFeatureState = createFeatureSelector<PostState>('posts');
 
-export const getBlogPosts = createSelector(
+export const getPosts = createSelector(
     getBlogPostsFeatureState,
     state => state.posts
 );

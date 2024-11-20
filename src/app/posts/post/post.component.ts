@@ -1,14 +1,28 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { Post } from '../post';
+import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Post } from '../models/post';
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
   standalone: true,
-  imports: [MatCardModule]
+  imports: [MatCardModule, MatButtonModule, MatIconModule, CommonModule]
 })
 export class PostComponent {
   @Input() post!: Post;
+
+  constructor(private store: Store, private router: Router) {
+  }
+
+  onCommentClick() {
+    if (this.post.id) {
+      this.router.navigate(['posts/comments', this.post.id]);
+    }
+  }
 }

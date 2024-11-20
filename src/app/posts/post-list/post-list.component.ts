@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { Post } from '../post';
+import { Post } from '../models/post';
 import { PostComponent } from '../post/post.component';
 
 @Component({
