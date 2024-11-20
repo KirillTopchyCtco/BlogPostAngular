@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
@@ -11,7 +11,8 @@ import { CommentComponent } from '../comment/comment.component';
   templateUrl: './comment-list.component.html',
   styleUrls: ['./comment-list.component.scss'],
   standalone: true,
-  imports: [CommentComponent, CommonModule, MatIconModule, MatButtonModule]
+  imports: [CommentComponent, CommonModule, MatIconModule, MatButtonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CommentListComponent {
 

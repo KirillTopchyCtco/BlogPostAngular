@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { Post } from '../models/post';
 import { PostComponent } from '../post/post.component';
@@ -9,7 +9,8 @@ import { PostComponent } from '../post/post.component';
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.scss'],
   standalone: true,
-  imports: [CommonModule, PostComponent, MatCardModule]
+  imports: [CommonModule, PostComponent, MatCardModule],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PostListComponent {
   @Input() errorMessage!: string;
