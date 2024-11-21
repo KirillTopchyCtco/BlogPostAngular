@@ -4,7 +4,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { Post } from '../models/post';
 
 @Component({
@@ -13,13 +12,12 @@ import { Post } from '../models/post';
   styleUrls: ['./post.component.scss'],
   standalone: true,
   imports: [MatCardModule, MatButtonModule, MatIconModule, CommonModule],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PostComponent {
   @Input() post!: Post;
 
-  constructor(private store: Store, private router: Router) {
-  }
+  constructor(private router: Router) {}
 
   onCommentClick() {
     if (this.post.id) {
