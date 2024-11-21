@@ -21,7 +21,7 @@ export class CommentListComponent {
 
   constructor(private router: Router) { }
 
-  onHomeClick() {
+  onBackClick() {
     this.router.navigate(['/posts']);
   }
 }
