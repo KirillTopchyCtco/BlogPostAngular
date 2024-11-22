@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MenuComponent } from "./home/menu/menu.component";
 
 @NgModule({
   declarations: [
@@ -18,18 +19,16 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
     CommonModule,
-    StoreDevtoolsModule.instrument(
-      {
-        maxAge: 25,
-        name: 'Blog Post App Devtools'
-      }
-    ),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      name: 'Blog Post App Devtools'
+    }),
+    MenuComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
