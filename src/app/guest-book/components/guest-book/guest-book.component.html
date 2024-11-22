@@ -1,0 +1,10 @@
+<div *ngIf="(errorMessage$ | async) as errorMessage; else guestBookMessagesList">
+  <p>{{ errorMessage }}</p>
+</div>
+<ng-template #guestBookMessagesList>
+  <ul>
+    <li *ngFor="let message of guestBookMessages$ | async">
+      <app-guest-message [guestBookMessage]="message"></app-guest-message>
+    </li>
+  </ul>
+</ng-template>
