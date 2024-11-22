@@ -23,26 +23,20 @@ import { GuestBookMessageState } from '../../state/guest-book.reducer';
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
-    CommonModule,
+    CommonModule
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NewMessageDialogComponent {
-  errorMessage$ = this.store.select(
-    GuestBookActions.createGuestBookMessageFailure
-  );
-
+  errorMessage$ = this.store.select(GuestBookActions.createGuestBookMessageFailure);
   name = new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.required, Validators.email]);
-  message = new FormControl('', [
-    Validators.required,
-    Validators.minLength(20),
-  ]);
+  message = new FormControl('', [Validators.required, Validators.minLength(20)]);
 
   constructor(
     private dialogRef: MatDialogRef<NewMessageDialogComponent>,
-    private store: Store<GuestBookMessageState>
-  ) {}
+    private store: Store<GuestBookMessageState>,
+  ) { }
 
   dismiss() {
     this.dialogRef.close(null);
@@ -54,13 +48,11 @@ export class NewMessageDialogComponent {
       message: this.message.value!,
       author: {
         name: this.name.value!,
-        email: this.email.value,
-      },
+        email: this.email.value
+      }
     };
 
-    this.store.dispatch(
-      GuestBookActions.createGuestBookMessage(guestBookMessage)
-    );
+    this.store.dispatch(GuestBookActions.createGuestBookMessage(guestBookMessage));
     this.dialogRef.close(guestBookMessage);
   }
 
@@ -79,19 +71,13 @@ export class NewMessageDialogComponent {
     if (this.message.hasError('required')) {
       return 'You must enter a message';
     }
-    return this.message.hasError('minlength')
-      ? 'Message length must be at least 20 characters'
-      : '';
+    return this.message.hasError('minlength') ? 'Message length must be at least 20 characters' : '';
   }
 
   private generateGUID(): string {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
-      /[xy]/g,
-      function (c) {
-        const r = (Math.random() * 16) | 0,
-          v = c === 'x' ? r : (r & 0x3) | 0x8;
-        return v.toString(16);
-      }
-    );
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
   }
 }
