@@ -5,7 +5,7 @@ import { MenuComponent } from './home/menu/menu.component';
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [RouterTestingModule, MenuComponent], // Import MenuComponent if it's standalone
+    imports: [RouterTestingModule, MenuComponent],
     declarations: [AppComponent]
   }));
 
