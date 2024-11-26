@@ -1,0 +1,10 @@
+<div *ngIf="errorMessage; else commentsList">
+  <p>{{ errorMessage }}</p>
+</div>
+<ng-template #commentsList>
+  <ul>
+    <li *ngFor="let comment of comments">
+      <app-comment [comment]="comment"></app-comment>
+    </li>
+  </ul>
+</ng-template>

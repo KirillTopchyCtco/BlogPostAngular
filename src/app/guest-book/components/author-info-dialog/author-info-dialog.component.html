@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>Author Info</h2>
+<mat-dialog-content class="dialog">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput [value]="author.name" readonly placeholder="Name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput [value]="author.email" readonly placeholder="Email" />
+  </mat-form-field>
+
+  <mat-dialog-actions>
+    <button mat-button color="primary" (click)="dismiss()">
+      <mat-icon>cancel</mat-icon> Cancel
+    </button>
+  </mat-dialog-actions>
+</mat-dialog-content>
