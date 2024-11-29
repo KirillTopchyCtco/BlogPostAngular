@@ -67,42 +67,42 @@ describe('NewMessageDialogComponent', () => {
   });
 
   it('should have form controls', () => {
-    expect(component.name).toBeTruthy();
-    expect(component.email).toBeTruthy();
-    expect(component.message).toBeTruthy();
+    expect(component.form.controls.name).toBeTruthy();
+    expect(component.form.controls.email).toBeTruthy();
+    expect(component.form.controls.message).toBeTruthy();
   });
 
   it('save button should be disabled when invalid name provided', () => {
-    component.name.setValue('');
-    component.email.setValue(mockGuestBookMessage.author.email);
-    component.message.setValue(mockGuestBookMessage.message);
+    component.form.controls.name.setValue('');
+    component.form.controls.email.setValue(mockGuestBookMessage.author.email);
+    component.form.controls.message.setValue(mockGuestBookMessage.message);
     fixture.detectChanges();
     const saveButton = fixture.debugElement.query(By.css('#save-button')).nativeElement;
     expect(saveButton.disabled).toBeTruthy();
   });
 
   it('save button should be disabled when invalid email provided', () => {
-    component.name.setValue(mockGuestBookMessage.author.name);
-    component.email.setValue('test');
-    component.message.setValue(mockGuestBookMessage.message);
+    component.form.controls.name.setValue(mockGuestBookMessage.author.name);
+    component.form.controls.email.setValue('test');
+    component.form.controls.message.setValue(mockGuestBookMessage.message);
     fixture.detectChanges();
     const saveButton = fixture.debugElement.query(By.css('#save-button')).nativeElement;
     expect(saveButton.disabled).toBeTruthy();
   });
 
   it('save button should be disabled when message with lenght smaller than 20 charactes provided', () => {
-    component.name.setValue(mockGuestBookMessage.author.name);
-    component.email.setValue(mockGuestBookMessage.author.email);
-    component.message.setValue('test short message');
+    component.form.controls.name.setValue(mockGuestBookMessage.author.name);
+    component.form.controls.email.setValue(mockGuestBookMessage.author.email);
+    component.form.controls.message.setValue('test short message');
     fixture.detectChanges();
     const saveButton = fixture.debugElement.query(By.css('#save-button')).nativeElement;
     expect(saveButton.disabled).toBeTruthy();
   });
 
   it('save button should be enabled whan all valid fileds provided', () => {
-    component.name.setValue(mockGuestBookMessage.author.name);
-    component.email.setValue(mockGuestBookMessage.author.email);
-    component.message.setValue(mockGuestBookMessage.message);
+    component.form.controls.name.setValue(mockGuestBookMessage.author.name);
+    component.form.controls.email.setValue(mockGuestBookMessage.author.email);
+    component.form.controls.message.setValue(mockGuestBookMessage.message);
     fixture.detectChanges();
     const saveButton = fixture.debugElement.query(By.css('#save-button')).nativeElement;
     expect(saveButton.disabled).toBeFalse();
@@ -115,9 +115,9 @@ describe('NewMessageDialogComponent', () => {
 
   it('should dispatch createGuestBookMessage action on save', () => {
     const spy = spyOn(store, 'dispatch');
-    component.name.setValue(mockGuestBookMessage.author.name);
-    component.email.setValue(mockGuestBookMessage.author.email);
-    component.message.setValue(mockGuestBookMessage.message);
+    component.form.controls.name.setValue(mockGuestBookMessage.author.name);
+    component.form.controls.email.setValue(mockGuestBookMessage.author.email);
+    component.form.controls.message.setValue(mockGuestBookMessage.message);
     component.save();
 
     expect(spy).toHaveBeenCalledWith(GuestBookActions.createGuestBookMessage({

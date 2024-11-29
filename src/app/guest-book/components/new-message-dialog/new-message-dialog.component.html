@@ -2,20 +2,20 @@
 <mat-dialog-content class="dialog">
   <mat-form-field appearance="fill">
     <mat-label>Name</mat-label>
-    <input matInput [formControl]="name" required placeholder="Name" />
-    <mat-error *ngIf="name.invalid">{{ nameErrorMessage() }}</mat-error>
+    <input matInput [formControl]="form.controls.name" required placeholder="Name" />
+    <mat-error *ngIf="form.controls.name.invalid">{{ form.controls.name | errorMessage }}</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Email</mat-label>
-    <input matInput [formControl]="email" required placeholder="Email" />
-    <mat-error *ngIf="email.invalid">{{ emailErrorMessage() }}</mat-error>
+    <input matInput [formControl]="form.controls.email" required placeholder="Email" />
+    <mat-error *ngIf="form.controls.email.invalid">{{ form.controls.email | errorMessage }}</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Message</mat-label>
-    <input matInput [formControl]="message" required placeholder="Message" />
-    <mat-error *ngIf="message.invalid">{{ messageErrorMessage() }}</mat-error>
+    <input matInput [formControl]="form.controls.message" required placeholder="Message" />
+    <mat-error *ngIf="form.controls.message.invalid">{{ form.controls.message | errorMessage }}</mat-error>
   </mat-form-field>
 
   <mat-dialog-actions>
@@ -24,7 +24,7 @@
       id="save-button"
       color="primary"
       (click)="save()"
-      [disabled]="name.invalid || email.invalid || message.invalid"
+      [disabled]="form.invalid"
     >
       <mat-icon>save</mat-icon> Save
     </button>

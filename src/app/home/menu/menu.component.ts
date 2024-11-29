@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter, map, Observable } from 'rxjs';
 import { NewMessageDialogComponent } from 'src/app/guest-book/components/new-message-dialog/new-message-dialog.component';
 
@@ -13,7 +13,7 @@ import { NewMessageDialogComponent } from 'src/app/guest-book/components/new-mes
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
   standalone: true,
-  imports: [MatToolbarModule, MatButtonModule, CommonModule, MatDialogModule, MatSnackBarModule]
+  imports: [MatToolbarModule, MatButtonModule, CommonModule, MatDialogModule, MatSnackBarModule, RouterModule]
 })
 export class MenuComponent {
   isGuestBookRoute$!: Observable<boolean>;
@@ -30,15 +30,7 @@ export class MenuComponent {
     );
   }
 
-  onGuestBookClick() {
-    this.router.navigate(['/guest-book']);
-  }
-  onPostsClick() {
-    this.router.navigate(['/posts']);
-  }
-
   showForm() {
-
     let dialogRef = this.dialog.open(NewMessageDialogComponent, {
       width: '450px'
     });

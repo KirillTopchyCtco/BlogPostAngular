@@ -1,5 +1,6 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { first } from 'rxjs';
 import { GuestBookService } from './guest-book.service';
 import { GuestBookMessage } from './models/guestBookMessage';
 
@@ -31,7 +32,7 @@ describe('GuestBookService', () => {
   });
 
   it('should fetch guest book messages', () => {
-    service.getGuestBookMessages().subscribe(messages => {
+    service.getGuestBookMessages().pipe(first()).subscribe(messages => {
       expect(messages.length).toBe(2);
       expect(messages).toEqual([
         mockMessages['1'],
@@ -45,7 +46,7 @@ describe('GuestBookService', () => {
   });
 
   it('should handle empty response', () => {
-    service.getGuestBookMessages().subscribe(messages => {
+    service.getGuestBookMessages().pipe(first()).subscribe(messages => {
       expect(messages.length).toBe(0);
     });
 

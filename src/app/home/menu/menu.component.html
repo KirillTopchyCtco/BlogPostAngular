@@ -1,11 +1,15 @@
 <mat-toolbar>
   <div class="button-container">
-    <button mat-raised-button color="primary" (click)="onPostsClick()">
-      Posts
-    </button>
-    <button mat-raised-button color="primary" (click)="onGuestBookClick()">
-      Guest Book
-    </button>
+    <a [routerLink]="['/posts']">
+      <button mat-raised-button color="primary">
+        Posts
+      </button>
+    </a>
+    <a [routerLink]="['/guest-book']">
+      <button mat-raised-button color="primary">
+        Guest Book
+      </button>
+    </a>
     <span class="spacer"></span>
     <button mat-raised-button color="accent" *ngIf="isGuestBookRoute$ | async" (click)="showForm()">
         Add Message

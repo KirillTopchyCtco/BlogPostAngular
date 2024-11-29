@@ -8,7 +8,7 @@ import { GuestBookComponent } from './components/guest-book/guest-book.component
 import { GuestBookEffects } from './state/guest-book.effects';
 import { guestBookReducer } from './state/guest-book.reducer';
 
-const gestBookRoutes: Routes = [
+const guestBookRoutes: Routes = [
   { path: '', component: GuestBookComponent }
 ];
 
@@ -16,7 +16,7 @@ const gestBookRoutes: Routes = [
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule.forChild(gestBookRoutes),
+    RouterModule.forChild(guestBookRoutes),
     StoreModule.forFeature('guest-book', guestBookReducer),
     EffectsModule.forFeature([GuestBookEffects]),
   ]
