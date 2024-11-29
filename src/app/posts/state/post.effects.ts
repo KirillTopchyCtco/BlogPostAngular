@@ -7,7 +7,7 @@ import { PostActions } from './post.actions';
 
 @Injectable()
 export class PostEffects {
-  constructor(private actions$: Actions, private postService: PostService) {}
+  constructor(private actions$: Actions, private postService: PostService) { }
 
   loadBlogPosts$ = createEffect(() => {
     return this.actions$.pipe(
